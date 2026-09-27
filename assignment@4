@@ -1,0 +1,83 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int choice;
+    int book[10];
+    int n = 0;
+    int id;
+
+    do
+    {
+        cout << "\n1. Add Book";
+        cout << "\n2. Display Books";
+        cout << "\n3. Search Book";
+        cout << "\n4. Exit";
+
+        cout << "\nEnter choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {
+            if (n < 10)
+            {
+                cout << "Enter Book ID: ";
+                cin >> book[n];
+                n++;
+            }
+            else
+            {
+                cout << "Library is full.\n";
+            }
+        }
+        else if (choice == 2)
+        {
+            if (n == 0)
+            {
+                cout << "No books to display.\n";
+            }
+            else
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    cout << book[i] << endl;
+                }
+            }
+        }
+        else if (choice == 3)
+        {
+            cout << "Enter Book ID: ";
+            cin >> id;
+
+            bool found = false;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (book[i] == id)
+                {
+                    cout << "Book Found\n";
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                cout << "Book Not Found\n";
+            }
+        }
+        else if (choice == 4)
+        {
+            cout << "Exit\n";
+        }
+        else
+        {
+            cout << "Invalid choice\n";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
